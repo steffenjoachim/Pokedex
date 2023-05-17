@@ -1,0 +1,72 @@
+    .t-electric {
+    background: rgb(232, 175, 26);
+    }
+    
+    .t-water {
+    background: rgb(44, 130, 201);
+    }
+    
+    .t-fire {
+    background: rgb(240, 128, 48);
+    }
+    
+    .t-grass {
+    background: rgb(120, 200, 80);
+    }
+    
+    .t-ice {
+    background: rgb(152, 216, 216);
+    }
+    
+    .t-fighting {
+    background: rgb(192, 48, 40);
+    }
+    
+    .t-poison {
+    background: rgb(160, 64, 160);
+    }
+    
+    .t-ground {
+    background: rgb(224, 192, 104);
+    }
+    
+    .t-flying {
+    background: rgb(168, 144, 240);
+    }
+    
+    .t-psychic {
+    background: rgb(248, 88, 136);
+    }
+    
+    .t-bug {
+    background: rgb(168, 184, 32);
+    }
+    
+    .t-rock {
+    background: rgb(184, 160, 56);
+    }
+    
+    .t-ghost {
+    background: rgb(112, 88, 152);
+    }
+    
+    .t-dragon {
+    background: rgb(112, 56, 248);
+    }
+    
+    .t-dark {
+    background: rgb(112, 88, 72);
+    }
+    
+    .t-steel {
+    background: rgb(184, 184, 208);
+    }
+    
+    .t-fairy {
+    background: rgb(238, 153, 172);
+    }
+    
+    .t-normal{
+    background: rgb(214, 214, 209);
+}
+
