@@ -2,9 +2,11 @@ let currentPokemon;
 let currentPokemonName;
 let allPokemon;
 let pokemonToBeShown;
+let offset = 0; // Startwert für den Offset
+let count = 0; // Zählvariable für eindeutige IDs
 
-async function getPokemonName(){
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=40&offset=0`
+async function getPokemonName() {
+    let url = `https://pokeapi.co/api/v2/pokemon?limit=40&offset=${offset}`;
     let response = await fetch(url);
     response = await response.json();
     allPokemon = response['results'];
@@ -12,49 +14,58 @@ async function getPokemonName(){
     content.innerHTML = '';
     for (let i = 0; i < allPokemon.length; i++) {
         const currentPokemon = allPokemon[i]['name'];
-        // console.log(currentPokemon)
-        loadPokemons(currentPokemon,i);
+        loadPokemons(currentPokemon);
     }
-    
 }
 
 
-// function getPokemonName(){
-//     for (let i = 1; i < 21; i++) {
-//         const currentPokemon = i;
-//         console.log(currentPokemon)
-//         loadPokemons(currentPokemon);
-//     }
-    
-// }
-
-async function loadPokemons(currentPokemon,i){
-    let url = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`
+async function loadPokemons(currentPokemon) {
+    let url = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`;
     let response = await fetch(url);
     pokemonToBeShown = await response.json();
-    console.log(pokemonToBeShown)
-    renderPokemonInfo(i);   
+    renderPokemonInfo();
 }
 
-function renderPokemonInfo(i){
-    let index = i;
-    console.log(index);
-    content.innerHTML +=`
-    <div class="pokedex" id="pokedex${index}">
+
+function renderPokemonInfo() {
+    let index = count;
+    let content = document.getElementById('content');
+    let pokemonContainer = document.createElement('div');
+    pokemonContainer.className = 'pokedex';
+    pokemonContainer.id = `pokedex${index}`;
+    pokemonContainer.innerHTML = `
         <h2 id="pokemon-name${index}">Name</h2>
-        <img id="pokemon-picture${i}" src="#">
-        <h3 id="pokemon-type${i}"></h3>
-    </div>
-    `
+        <img id="pokemon-picture${index}" src="#">
+        <h3 id="pokemon-type${index}"></h3>
+    `;
 
-document.getElementById(`pokemon-name${index}`).innerHTML = pokemonToBeShown['name'];
-document.getElementById(`pokemon-picture${index}`).src =pokemonToBeShown['sprites']['front_shiny']
-document.getElementById(`pokemon-type${index}`).innerHTML = 'Typ: ' + pokemonToBeShown['types'][0]['type']['name'];
+    content.appendChild(pokemonContainer);
 
-let pokemonType = pokemonToBeShown['types'][0]['type']['name'];
+    document.getElementById(`pokemon-name${index}`).innerHTML = pokemonToBeShown['name'];
+    document.getElementById(`pokemon-picture${index}`).src = pokemonToBeShown['sprites']['front_shiny'];
+    document.getElementById(`pokemon-type${index}`).innerHTML = 'Typ: ' + pokemonToBeShown['types'][0]['type']['name'];
 
- assignBackgroundColor(pokemonType, index)
+    let pokemonType = pokemonToBeShown['types'][0]['type']['name'];
+    assignBackgroundColor(pokemonType, index);
+
+    count++; // Erhöht die Zählvariable
 }
+
+
+async function loadMore() {
+    offset += 40; // Erhöht den Offset um 40
+
+    let url = `https://pokeapi.co/api/v2/pokemon?limit=40&offset=${offset}`;
+    let response = await fetch(url);
+    response = await response.json();
+    let additionalPokemon = response['results'];
+
+    for (let i = 0; i < additionalPokemon.length; i++) {
+        const currentPokemon = additionalPokemon[i]['name'];
+        loadPokemons(currentPokemon);
+    }
+}
+
 
 function assignBackgroundColor(pokemonType, index) {
     const content = document.getElementById(`pokedex${index}`);
@@ -120,8 +131,6 @@ function assignBackgroundColor(pokemonType, index) {
         break;
     }
 
-    console.log(typeClass)
-  
     content.classList.add(typeClass);
   }
   

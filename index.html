@@ -8,21 +8,26 @@
     <title>Pokedex</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="colors-per-type.css">
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+
+    <link rel="icon" type="image/x-icon" href="./img/pikachu-5527377_640.webp">
 
 </head>
 
 <body onload="getPokemonName()">
     <header>
-        <h1>Pokedex</h1>
+        <img class="headerLogo" src="./img/pikachu-5527377_640.webp">
+        <div class="h1Container">
+            <h1>Pokedex</h1>
+        </div>
     </header>
-    <div class="content" id="content">
-        <!-- <div id="pokedex">
-            <h2 id="pokemon-name">Name</h2>
-            <img id="pokemon-picture" src="#">
-            <h3 id="pokemon-type"></h3>
-        </div> -->
+    <div id="content" class="content">
+
     </div>
+    <div class="buttonContainer">
+        <button onclick="loadMore()">Mehr Laden</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

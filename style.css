@@ -4,14 +4,21 @@
     margin: 0;
 }
 
-body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+@font-face{
+    font-family: Railway;
+    src: url(./fonts/Raleway-VariableFont_wght.tt);
 }
 
-h1{
-    margin-left: 16px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+@font-face{
+    font-family: Komikax;
+    src: url(./fonts/KOMIKAX_.ttf);
+}
+
+body{
+    font-family: Railway, 'Arial Narrow', Arial, sans-serif;
+    background-image: url(./img/water-1330252_640.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 h2{
@@ -26,8 +33,31 @@ h3{
 
 /* ================= Header =================== */
 header{ 
-    background: lightgrey ;
+    background: rgb(254, 214, 0);
+    display: flex;
+    align-items: center;
+    font-family: Komikax, Railway, sans-serif;
 }
+
+.headerLogo{
+    height: 150px;
+    margin-bottom: 16px;
+}
+
+.h1Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  h1{
+    margin-left: -64px;
+    color: rgb(90, 57, 173);
+    font-size: 72px;
+    font-weight: 900;
+  }
+
 
 /* ================ content =================== */
 
@@ -41,7 +71,7 @@ header{
 
 .pokedex{
     margin-top: 8px;
-    margin-left: 4px;
+    margin-left: 8px;
     margin-right: 4px;
     color: white;
     min-height: 20vh;
@@ -51,4 +81,29 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.pokedex:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+
+/* ===================== Button Container ===================== */
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    margin-bottom: 16px;
+    padding: 16px 32px;
+    background: yellow;
+    color: blue;
+    border: none;
+    border-radius: 10px;
+    font-weight: 900;
 }
