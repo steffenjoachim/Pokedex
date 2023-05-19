@@ -6,17 +6,36 @@ let offset = 0; // Startwert für den Offset
 let count = 0; // Zählvariable für eindeutige IDs
 
 async function getPokemonName() {
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=40&offset=${offset}`;
-    let response = await fetch(url);
-    response = await response.json();
-    allPokemon = response['results'];
-    let content = document.getElementById('content');
-    content.innerHTML = '';
-    for (let i = 0; i < allPokemon.length; i++) {
-        const currentPokemon = allPokemon[i]['name'];
-        loadPokemons(currentPokemon);
-    }
+  let url = `https://pokeapi.co/api/v2/pokemon/1`;
+  let response = await fetch(url);
+  currentPokemon = await response.json();
+  console.log(currentPokemon);
+  let bigContent = document.getElementById('big-content');
+  document.getElementById('big-name').innerHTML = currentPokemon['name'];
+  document.getElementById('big-type').innerHTML = currentPokemon['types'][0]['type']['name'];
+  document.getElementById('big-type2').innerHTML = currentPokemon['types'][1]['type']['name'];
+  document.getElementById('big-pokemon-picture').src = currentPokemon['sprites']['other']['official-artwork']['front_default'];
+  document.getElementById('base-experience').innerHTML = 'Base Experience: ' + currentPokemon['base_experience'];
+  document.getElementById('height').innerHTML = 'Height: ' + currentPokemon['height'];
+  document.getElementById('weight').innerHTML = 'Weight: ' + currentPokemon['weight'];
+  
+  
+
 }
+
+
+// async function getPokemonName() {
+//     let url = `https://pokeapi.co/api/v2/pokemon?limit=40&offset=${offset}`;
+//     let response = await fetch(url);
+//     response = await response.json();
+//     allPokemon = response['results'];
+//     let content = document.getElementById('content');
+//     content.innerHTML = '';
+//     for (let i = 0; i < allPokemon.length; i++) {
+//         const currentPokemon = allPokemon[i]['name'];
+//         loadPokemons(currentPokemon);
+//     }
+// }
 
 
 async function loadPokemons(currentPokemon) {
@@ -44,6 +63,8 @@ function renderPokemonInfo() {
     document.getElementById(`pokemon-name${index}`).innerHTML = pokemonToBeShown['name'];
     document.getElementById(`pokemon-picture${index}`).src = pokemonToBeShown['sprites']['front_shiny'];
     document.getElementById(`pokemon-type${index}`).innerHTML = 'Typ: ' + pokemonToBeShown['types'][0]['type']['name'];
+    
+
 
     let pokemonType = pokemonToBeShown['types'][0]['type']['name'];
     assignBackgroundColor(pokemonType, index);
@@ -66,6 +87,10 @@ async function loadMore() {
     }
 }
 
+function closeBigPicture(){
+  console.log('clicked');
+  document.getElementById('big-content').classList.add('d-none');
+}
 
 function assignBackgroundColor(pokemonType, index) {
     const content = document.getElementById(`pokedex${index}`);

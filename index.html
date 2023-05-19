@@ -8,7 +8,7 @@
     <title>Pokedex</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="colors-per-type.css">
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
 
     <link rel="icon" type="image/x-icon" href="./img/pikachu-5527377_640.webp">
 
@@ -21,13 +21,35 @@
             <h1>Pokedex</h1>
         </div>
     </header>
-    <div id="content" class="content">
+    <!-- <div id="content" class="content">
+        </div> -->
 
     </div>
+    <div onclick="closeBigPicture()" id="big-content" class="bigContent">
+        <img class="arrow" src="./img/arrow_left.png">
+        <div class="cotentcontainer">
+            <div class="bigpokedex">
+                <h2 id="big-name">Name</h2>
+                <span id="big-type">Type: electric</span>
+                <span id="big-type2">Type: electric</span>
+                <div class="bigImageContainer">
+                    <img id="big-pokemon-picture" class="big-pokemon-picture" src="#">
+                </div>
+            </div>
+            <div id="info-container" class="infoContainer">
+                <p id="base-experience" class="base-experience"></p>
+                <p id="height"></p>
+                <p id="weight"></p>
+            </div>
+        </div>
+        <img class="arrow" src="./img/arrow_right.png">
+    </div>
+
+
     <div class="buttonContainer">
         <button onclick="loadMore()">Mehr Laden</button>
     </div>
-    <script src="script.js"></script>
+
 </body>
 
 </html>

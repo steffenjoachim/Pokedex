@@ -1,4 +1,4 @@
-/* '============== Generel Styles ==============' */
+/* '============== General Styles ==============' */
 
 *{
     margin: 0;
@@ -6,7 +6,7 @@
 
 @font-face{
     font-family: Railway;
-    src: url(./fonts/Raleway-VariableFont_wght.tt);
+    src: url(./fonts/Raleway-VariableFont_wght.ttf);
 }
 
 @font-face{
@@ -28,6 +28,10 @@ h2{
 
 h3{
     padding-bottom: 8px;
+}
+
+.d-none{
+    display: none;
 }
 
 
@@ -59,7 +63,7 @@ header{
   }
 
 
-/* ================ content =================== */
+/* ================ kleine Karte =================== */
 
 .content{
     display: flex;
@@ -87,6 +91,93 @@ header{
     cursor: pointer;
     transform: scale(1.05);
     opacity: 0.8;
+}
+
+/* ================ große Karte =================== */
+
+.bigContent{
+    display: flex;
+    flex-direction: row;  
+    z-index: 10;
+    background: rgba(0, 0, 0, .7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    justify-content: center;
+    align-items: center;
+}
+
+.cotentcontainer{ 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow{
+height: 48px;
+width: 48px;
+}
+
+.bigpokedex{
+    min-height: 30vh;
+    min-width: 400px;
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(232, 175, 26);
+    color: white;
+    border-radius: 10px;
+}
+
+.infoContainer{
+    min-width: 400px;
+    margin-left: 8px;
+    margin-right: 8px;
+    background: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    min-height: 100px;
+    margin-top: -32px;
+}
+
+.bigImageContainer{
+    z-index: 999;
+}
+
+.big-pokemon-picture{
+margin-bottom: -20px;    
+height:100px
+
+}
+
+span{
+    border: solid 1px transparent;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, .1);
+}
+
+p{
+    text-align: center;
+    font-family: Railway, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.base-experience{
+    margin-top: 50px;
+    margin-bottom: 4px;
+    text-align: center;
+    font-family: Railway, Arial, Helvetica, sans-serif;
+    font-weight: 600;
 }
 
 
