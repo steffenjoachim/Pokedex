@@ -94,8 +94,8 @@ header{
     margin-left: 8px;
     margin-right: 4px;
     color: white;
-    min-height: 20vh;
-    width: 23%;
+    min-height: 25vh;
+    width: 160px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -200,6 +200,11 @@ p{
     font-weight: 600;
 }
 
+.canvas{
+    height: 400px !important;
+    width: 400px !important;
+}
+
 
 /* ===================== Button Container ===================== */
 
@@ -218,3 +223,71 @@ button{
     border-radius: 10px;
     font-weight: 900;
 }
+
+/* ========== Footer ============ */
+
+footer{
+    height: 10vh;
+    background: rgb(254, 214, 0);
+}
+
+
+/* ============== responsive============= */
+
+@media(max-width: 550px) {
+
+    h1{
+        font-size: 56px;
+        margin-left: -24px;
+    }
+
+    .headerLogo{
+        height: 100px;
+    }
+
+    input{
+        margin-bottom: 8px;
+    }
+
+    .pokedex{
+        width: 200px;
+    }
+
+    .bigContent {
+        flex-direction: column;
+        background: rgba(0, 0, 0, .8);
+    }
+
+    .arrow{
+            margin-top: 8px;
+            margin-bottom: 8px;
+            background: white;
+    }
+
+}
+
+@media(max-width: 420px) {
+
+    header{
+
+        flex-direction: column;
+    }
+
+    h1{
+        font-size: 44px;
+        margin-left: -24px;
+    }
+
+    .headerLogo{
+        height: 150px;
+        margin-bottom: 0;
+    }
+
+    .bigpokedex{
+        min-width: 300px;
+    }
+
+    .infoContainer{
+        min-width: 300px;
+    }
+ }
